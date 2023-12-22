@@ -27,8 +27,8 @@ export const ContactList = ({ children }) => {
         <p className={s.errorMessage}>No contacts match your search</p>
       ) : (
         <ul className={s.contactList}>
-          {filteredContacts.map(({ id, name, number }) => (
-            <ListItem key={id} id={id} name={name} number={number} />
+          {filteredContacts.map(({ id, name, phone }) => (
+            <ListItem key={id} id={id} name={name} phone={phone} />
           ))}
         </ul>
       )}

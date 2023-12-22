@@ -3,13 +3,13 @@ import s from './ListItem.module.css';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../store/phonebookSlice.js';
 
-export const ListItem = ({ name, number, id }) => {
+export const ListItem = ({ name, phone, id }) => {
   const dispatch = useDispatch();
   return (
     <li className={s.contactItem}>
       <div>
         <span>{name}: </span>
-        <span>{number}</span>
+        <span>{phone}</span>
       </div>
 
       <button

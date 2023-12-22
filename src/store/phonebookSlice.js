@@ -25,12 +25,12 @@ export const phonebookSlice = createSlice({
       state.filter = payload;
     },
     addContact: {
-      prepare: ({ name, number }) => {
+      prepare: ({ name, phone }) => {
         return {
           payload: {
             id: nanoid(5),
             name,
-            number,
+            phone,
           },
         };
       },
