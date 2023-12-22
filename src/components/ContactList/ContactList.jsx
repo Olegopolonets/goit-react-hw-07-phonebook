@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ListItem } from '../ListItem/ListItem.jsx';
 import s from './ContactList.module.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchContasctsThunk } from '../../store/operations.js';
 
 export const ContactList = ({ children }) => {
   const contacts = useSelector(state => state.phonebook.contacts);
   const filter = useSelector(state => state.phonebook.filter);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContasctsThunk());
+  }, [dispatch]);
+
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter?.toLowerCase() || '')
   );
