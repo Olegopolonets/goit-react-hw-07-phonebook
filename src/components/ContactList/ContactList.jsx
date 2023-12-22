@@ -16,10 +16,9 @@ export const ContactList = ({ children }) => {
     dispatch(fetchContasctsThunk());
   }, [dispatch]);
 
-  const filteredContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter?.toLowerCase() || '')
+  const filteredContacts = contacts?.filter(contact =>
+    contact.name.toLowerCase().includes(filter.toLowerCase() || '')
   );
-  console.log('filter: ', filter);
 
   console.log(contacts);
   return (

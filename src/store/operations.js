@@ -29,3 +29,18 @@ export const deleteContasctThunk = id => async dispatch => {
     dispatch(isError(error.message));
   }
 };
+
+export const addContasctThunk =
+  (nameContast, phoneNumber) => async dispatch => {
+    try {
+      dispatch(isLoading());
+      const { data } = await axios.post('contacts', {
+        name: nameContast,
+        phone: phoneNumber,
+      });
+      console.log('addContasctThunk:', data);
+      // dispatch(deleteContact(data.id));
+    } catch (error) {
+      dispatch(isError(error.message));
+    }
+  };

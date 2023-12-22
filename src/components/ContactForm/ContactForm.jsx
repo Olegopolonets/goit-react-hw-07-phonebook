@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import s from './ContactForm.module.css';
-import { addContact } from '../../store/phonebookSlice.js';
+import { addContasctThunk } from '../../store/operations.js';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ export const ContactForm = () => {
       return;
     }
 
-    dispatch(addContact({ name, phone }));
+    dispatch(addContasctThunk(name, phone));
     event.target.reset();
   };
 
