@@ -5,8 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchContasctsThunk } from '../../store/operations.js';
 
 export const ContactList = ({ children }) => {
-  const contacts = useSelector(state => state.phonebook.contacts);
+  const contacts = useSelector(state => state.phonebook.contacts.items);
   const filter = useSelector(state => state.phonebook.filter);
+  const loading = useSelector(state => state.phonebook.contacts.isLoading);
+  const error = useSelector(state => state.phonebook.contacts.error);
 
   const dispatch = useDispatch();
 
@@ -32,6 +34,8 @@ export const ContactList = ({ children }) => {
           ))}
         </ul>
       )}
+      {loading && <p>Loading....</p>}
+      {error && <p>{error}</p>}
     </>
   );
 };

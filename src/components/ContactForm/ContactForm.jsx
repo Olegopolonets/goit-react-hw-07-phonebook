@@ -4,7 +4,7 @@ import { addContact } from '../../store/phonebookSlice.js';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.phonebook.contacts);
+  const contacts = useSelector(state => state.phonebook.contacts.items);
 
   const createContact = event => {
     event.preventDefault();
