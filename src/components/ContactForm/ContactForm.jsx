@@ -15,7 +15,7 @@ export const ContactForm = () => {
       return;
     }
 
-    dispatch(addContasctThunk(name, phone));
+    dispatch(addContasctThunk({ name, phone }));
     event.target.reset();
   };
 
