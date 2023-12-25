@@ -3,6 +3,7 @@ import { ListItem } from '../ListItem/ListItem.jsx';
 import s from './ContactList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContasctsThunk } from '../../store/operations.js';
+import { FallingLines } from 'react-loader-spinner';
 
 export const ContactList = ({ children }) => {
   const contacts = useSelector(state => state.phonebook.contacts.items);
@@ -33,7 +34,16 @@ export const ContactList = ({ children }) => {
           ))}
         </ul>
       )}
-      {loading && <p>Loading....</p>}
+      {loading && (
+        <div className={s.loaderWrapper}>
+          <FallingLines
+            color="#315cad"
+            width="300"
+            visible={true}
+            ariaLabel="falling-circles-loading"
+          />
+        </div>
+      )}
       {error && <p>{error}</p>}
     </>
   );

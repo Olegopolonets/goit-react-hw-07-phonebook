@@ -30,12 +30,14 @@ export const phonebookSlice = createSlice({
       state.contacts.items = state.contacts.items.filter(
         item => item.id !== payload
       );
+      state.contacts.isLoading = false;
     },
     setFilter: (state, { payload }) => {
       state.filter = payload;
     },
     addContact: (state, { payload }) => {
       state.contacts.items.push(payload);
+      state.contacts.isLoading = false;
     },
   },
 });

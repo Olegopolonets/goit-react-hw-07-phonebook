@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {
+  addContact,
   deleteContact,
   fetchingData,
   isError,
@@ -39,7 +40,7 @@ export const addContasctThunk =
         phone: phoneNumber,
       });
       console.log('addContasctThunk:', data);
-      // dispatch(deleteContact(data.id));
+      dispatch(addContact(data));
     } catch (error) {
       dispatch(isError(error.message));
     }
