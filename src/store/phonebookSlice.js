@@ -17,6 +17,11 @@ const initialState = {
 export const phonebookSlice = createSlice({
   name: 'phonebook',
   initialState,
+  reducers: {
+    setFilter: (state, { payload }) => {
+      state.filter = payload;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchContasctsThunk.fulfilled, (state, { payload }) => {
@@ -43,13 +48,5 @@ export const phonebookSlice = createSlice({
   },
 });
 
-export const {
-  deleteContact,
-  setFilter,
-  addContact,
-  fetchingData,
-  isError,
-  isLoading,
-} = phonebookSlice.actions;
-
+export const { setFilter } = phonebookSlice.actions;
 export default phonebookSlice.reducer;
